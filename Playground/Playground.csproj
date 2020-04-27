@@ -42,6 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Asteroid.cs" />
+    <Compile Include="Collider2D.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,7 +66,9 @@
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.manifest" />
+    <None Include="Content\Asteroid3D.fbx" />
     <None Include="Content\Cube.fbx" />
+    <None Include="Content\flatSpaceship.FBX" />
     <None Include="Content\flieger.fbx" />
     <None Include="Content\Rocketship3D.fbx" />
     <None Include="Content\Spaceship.fbx" />
