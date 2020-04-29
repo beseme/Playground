@@ -57,6 +57,7 @@
   <ItemGroup>
     <Content Include="Content\Asteroid 1.png" />
     <Content Include="Content\Asteroid 2.png" />
+    <Content Include="Content\asteroidTexture.png" />
     <Content Include="Content\backgroundStar.png" />
     <Content Include="Content\Cubodon.png" />
     <Content Include="Content\rocketship.png" />

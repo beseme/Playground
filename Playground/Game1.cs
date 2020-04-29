@@ -19,9 +19,10 @@ namespace Playground
         Texture2D Rocketship;
         Texture2D Asteroid1;
         Texture2D testTexture;
+        Texture2D astTexture;
 
         SpriteFont hpShow;
-        int hp = 100;
+        int hp = 10000;
 
         Texture2D[] Asteroids = new Texture2D[15];
         Model[] AsteroidsIn3D = new Model[15];
@@ -99,6 +100,7 @@ namespace Playground
             Asteroid1 = this.Content.Load<Texture2D>("Asteroid 1");
             testTexture = this.Content.Load<Texture2D>("Texture");
             Spaceship = this.Content.Load<Model>("flatSpaceship");
+            astTexture = this.Content.Load<Texture2D>("asteroidTexture");
 
             hpShow = this.Content.Load<SpriteFont>("File");
             Random rng = new Random();
@@ -222,7 +224,7 @@ namespace Playground
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Navy);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
 
@@ -240,7 +242,7 @@ namespace Playground
 
             for(int i = 0; i < AsteroidsIn3D.Length; i++)
             {
-                DrawModel(AsteroidsIn3D[i], astWorld[i], view, projection);
+                DrawAsteroid(AsteroidsIn3D[i], astWorld[i], view, projection);
             }
 
             base.Draw(gameTime);
@@ -257,6 +259,24 @@ namespace Playground
                     effect.Projection = projection;
 
                     effect.Texture = testTexture;
+                    effect.TextureEnabled = true;
+                }
+
+                mesh.Draw();
+            }
+        }
+
+        private void DrawAsteroid(Model model, Matrix world, Matrix view, Matrix projection)
+        {
+            foreach (ModelMesh mesh in model.Meshes)
+            {
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    effect.World = world;
+                    effect.View = view;
+                    effect.Projection = projection;
+
+                    effect.Texture = astTexture;
                     effect.TextureEnabled = true;
                 }
 
